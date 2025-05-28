@@ -43,7 +43,7 @@ It includes all essential documentation that a QA engineer typically works with 
 
 ## 📫 Contact Me
 
-- **LinkedIn**: [linkedin.com/in/diana-margaryann](https://www.linkedin.com/in/diana-margaryan](https://www.linkedin.com/in/diana-margaryann/)
+- **LinkedIn**: [linkedin.com/in/diana-margaryann](https://www.linkedin.com/in/diana-margaryann/)
 - **Email**: *diana.margaryan65@gmail.com* 
 - **GitHub**: [github.com/diana-margaryan](https://github.com/diana-margaryan)
 
