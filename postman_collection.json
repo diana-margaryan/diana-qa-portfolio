@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "408d54dc-2ec6-4d34-8957-a0c42ff3a932",
+		"name": "Diana_exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44575862",
+		"_collection_link": "https://diana-7386244.postman.co/workspace/Diana's-Workspace~eeeacba4-1701-439d-87c5-0946978d1d9b/collection/44575862-408d54dc-2ec6-4d34-8957-a0c42ff3a932?action=share&source=collection_link&creator=44575862"
+	},
+	"item": [
+		{
+			"name": "Log in",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var res = JSON.parse(responseBody);",
+							"{",
+							"pm.environment.set(\"Token\", res.token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234567890",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "diana_admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://qwallity-exam.onrender.com/login/api",
+					"protocol": "https",
+					"host": [
+						"qwallity-exam",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"login",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var res = JSON.parse(responseBody);",
+							"{",
+							"pm.environment.set(\"CourseID\", res.id);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Fund1\",\n  \"body\": \"test fund course\",\n  \"coursetype\": \"1\",\n  \"author\": \"Diana\",\n  \"price\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qwallity-exam.onrender.com/add_course/api",
+					"protocol": "https",
+					"host": [
+						"qwallity-exam",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"add_course",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Discount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"course_type\": \"1\",\n  \"discount\": 50,\n  \"course_count\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qwallity-exam.onrender.com/set_discount/api",
+					"protocol": "https",
+					"host": [
+						"qwallity-exam",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"set_discount",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log In non admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var res = JSON.parse(responseBody);",
+							"{",
+							"pm.environment.set(\"Token2\", res.token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12344321",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "diana_user2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://qwallity-exam.onrender.com/login/api",
+					"protocol": "https",
+					"host": [
+						"qwallity-exam",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"login",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://qwallity-exam.onrender.com/buy_course/api/{{CourseID}}/diana_user2",
+					"protocol": "https",
+					"host": [
+						"qwallity-exam",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"buy_course",
+						"api",
+						"{{CourseID}}",
+						"diana_user2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
